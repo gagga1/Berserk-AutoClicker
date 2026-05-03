@@ -122,7 +122,7 @@ Every clicker tool can spam clicks. The difference is how those clicks are space
 
 | Playstyle | Distribution | Base CPS | Jitter | Mode |
 |-----------|-------------|----------|--------|------|
-| Minecraft PvP butterfly | Gaussian | 50 | 50% | Hold |
+| Minecraft PvP butterfly | Gaussian | 21 | 50% | Hold |
 | Minecraft PvP jitter | Walk | 14 | 65% | Hold |
 | Minecraft PvP drag | Sine | 22 | 40% | Hold |
 | Roblox auto farm | Uniform | 18 | 0% | Toggle |
