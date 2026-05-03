@@ -8,6 +8,15 @@ A Windows-first desktop autoclicker focused on accuracy, speed and a clean inter
   <img src="docs/screenshots/hero.png" alt="Berserk Auto Clicker main window" width="640"/>
 </p>
 
+<p align="center">
+  <a href="#install">Install</a> ·
+  <a href="#features">Features</a> ·
+  <a href="#click-style-guide">Click style guide</a> ·
+  <a href="#pick-by-playstyle">Pick by playstyle</a> ·
+  <a href="#build-from-source">Build from source</a> ·
+  <a href="#license">License</a>
+</p>
+
 ## Install
 
 Grab the installer from the [latest release](https://github.com/gagga1/Berserk-AutoClicker/releases/latest). The app installs to `%localappdata%\BerserkAutoClicker`. Settings live in `%appdata%\BerserkAutoClicker`.
