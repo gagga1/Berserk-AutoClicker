@@ -1,90 +1,96 @@
 # Berserk Auto Clicker
 
-Autoclicker made by and for Berserk Group. Uploaded the app to GitHub starting with version 2.6.7.
+Made by and for Berserk Group. First public release on GitHub starts at version 2.6.7.
 
 A Windows-first desktop autoclicker focused on accuracy, speed and a clean interface. Built with Tauri 2, Rust and React.
 
+<p align="center">
+  <img src="docs/screenshots/hero.png" alt="Berserk Auto Clicker main window" width="640"/>
+</p>
+
+## Install
+
+Grab the installer from the [latest release](https://github.com/gagga1/Berserk-AutoClicker/releases/latest). The app installs to `%localappdata%\BerserkAutoClicker`. Settings live in `%appdata%\BerserkAutoClicker`.
+
 ## Features
 
-A short tour of what's in the app today.
+<table>
+<tr>
+<td width="320"><img src="docs/screenshots/simple-panel.png" alt="Simple panel" width="300"/></td>
+<td>
 
-**Click rate** is what you'd expect, configurable in clicks per second, minute, hour or day. Rate input mode lets you flip between rate-based (X clicks per second) and delay-based (one click every N milliseconds). The clicker holds steady at higher rates without the drift that's common in other tools.
+### Simple panel
 
-**Trigger** is fully customizable. Pick any key, mouse button, or modifier combo (Shift+F6, Ctrl+Alt+B, mouse4, etc). Toggle mode keeps the clicker running until you press the hotkey again. Hold mode only clicks while you keep the key down.
+Click rate in CPS or any other unit. Hotkey with full modifier combo support. Toggle or Hold mode. Button selector. Game presets one click away.
 
-**Click curve editor** is a small math-style graph in the Simple panel that visualises your click pattern. Two control points sit on the X and Y axes. The red one moves horizontally to set duty cycle. The gold one moves vertically to set jitter. The curve reshapes live as you drag.
+</td>
+</tr>
+<tr>
+<td width="320"><img src="docs/screenshots/curve-editor.png" alt="Click curve editor" width="300"/></td>
+<td>
 
-**Variation distributions** decide how the timing jitter is sampled. Gaussian gives a bell curve, ideal when you want clicks to look human. Uniform spreads variation evenly across the range. Sine adds slow oscillation in the click rate. Walk does a random walk where each interval drifts slightly from the previous.
+### Click curve
 
-**Game presets** are baked in for common targets. One click and your settings switch over. Roblox gets you 18 cps with no jitter. Minecraft gets you 11 cps in Hold mode with 55 percent Gaussian jitter, which is roughly what serious PvP players use.
+Math-style graph with two draggable control points. Red dot sets duty cycle on the X axis. Gold dot sets jitter on the Y axis. Pick the timing distribution: Gaussian, Uniform, Sine, Walk.
 
-**App lock** restricts clicking to a specific window. Type a substring of a window title and the clicker only fires while that window has focus. Alt-tab away and it pauses, switch back and it picks up. Useful when you don't want the clicker to fire over your browser or Discord while you're checking something.
+</td>
+</tr>
+<tr>
+<td width="320"><img src="docs/screenshots/zones.png" alt="Stop zones" width="300"/></td>
+<td>
 
-**Window profiles** auto-apply a saved preset when a target window is detected. Open Minecraft and your PvP preset loads. Open Roblox and your auto farm settings come up. Polling runs every 1.5 seconds while the clicker is idle.
+### Safety zones
 
-**Floating HUD** is a small always-on-top window that shows live CPS and click count during a run. You can drag it anywhere on screen. Auto shows when the clicker engages and hides when it stops.
+Edge and corner exclusion. Custom rectangular zones drawn directly on screen with the Pick Zone tool, like the Windows snipping flow. Multi monitor handled correctly.
 
-**Stop zones** prevent runaway clicks. Configure edge and corner exclusion areas and the clicker pauses if your cursor enters them. Custom rectangular zones can be drawn directly on screen with the Pick Zone tool, similar to the Windows snipping flow. Drag a rectangle, release, and the zone is saved in physical pixels with full multi monitor support.
+</td>
+</tr>
+<tr>
+<td width="320"><img src="docs/screenshots/app-lock.png" alt="App lock" width="300"/></td>
+<td>
 
-**Sequence clicking** lets you define a list of screen positions. The clicker visits each in order with its own click count and rotates through.
+### App lock + window profiles
 
-**Themes** ship in three flavors. Berserk Red is the default. Eclipse Black runs darker. Behelit Gold pulls toward warm browns and amber. Light mode is also available.
+Restrict clicking to a specific window. Bind saved presets to window titles so opening Minecraft loads your PvP preset and switching to Roblox swaps configs automatically.
 
-**Presets** save and reuse the entire clicker config under a custom name. Apply, update, rename and delete from Settings.
+</td>
+</tr>
+<tr>
+<td width="320"><img src="docs/screenshots/hud.png" alt="Floating HUD" width="300"/></td>
+<td>
 
-**Other niceties.** Run indicator with animated bars in the titlebar. Optional start and stop sound cues. Settings panel sections fold and unfold. Window auto resizes to match the active panel. System tray icon, optional autostart with Windows. Local stats: total clicks, total time, average CPU.
+### Floating HUD
 
-## Installation
+Tiny always-on-top widget with live CPS and click count. Drag anywhere. Auto shows on run, hides when stopped. Works over borderless windowed games.
 
-Download the installer from the [latest release](https://github.com/gagga1/Berserk-AutoClicker/releases/latest) and run it. The app installs to `%localappdata%\BerserkAutoClicker`. Config and stats live in `%appdata%\BerserkAutoClicker`.
+</td>
+</tr>
+<tr>
+<td width="320"><img src="docs/screenshots/themes.png" alt="Theme presets" width="300"/></td>
+<td>
 
-If Windows SmartScreen warns about the unsigned binary, see [docs/windows-release-trust.md](docs/windows-release-trust.md).
+### Themes
+
+Three preset palettes ship in. Berserk Red is the default. Eclipse Black runs darker. Behelit Gold pulls toward warm browns. Light mode also available.
+
+</td>
+</tr>
+</table>
+
+Other niceties: sequence clicking with positional targets, named user presets, animated run indicator in the titlebar, optional start and stop sounds, system tray, optional autostart with Windows, local stats (total clicks, total time, average CPU).
 
 ## Build from source
-
-Berserk is Windows first. The build path uses the Rust `x86_64-pc-windows-msvc` toolchain plus Node.js.
-
-Requirements:
-
-```
-Node.js 20 or newer
-Rust via rustup
-Microsoft C++ Build Tools (Visual Studio Build Tools)
-```
-
-Setup:
 
 ```powershell
 git clone https://github.com/gagga1/Berserk-AutoClicker.git
 cd Berserk-AutoClicker
 npm install
-rustup default stable-x86_64-pc-windows-msvc
+npm run dev          # hot reload
+npm run build        # release exe + nsis installer
 ```
 
-Run in development:
-
-```powershell
-npm run dev
-```
-
-This opens the app window with hot reload, you don't need to recompile manually for frontend changes.
-
-Build a release bundle:
-
-```powershell
-npm run build
-```
-
-Output lands in `src-tauri\target\release\bundle\nsis\BerserkAutoClicker_<version>_x64-setup.exe`. The raw exe is at `src-tauri\target\release\BerserkAutoClicker.exe`.
-
-Useful checks:
-
-```powershell
-npm run lint
-npm run frontend:build
-cargo test --manifest-path src-tauri/Cargo.toml
-```
+Requires Node 20+, Rust via rustup, MSVC Build Tools, Windows `x86_64-pc-windows-msvc` toolchain.
 
 ## License
 
-GPL 3.0. See [LICENSE](LICENSE) for the full text.
+GPL 3.0. See [LICENSE](LICENSE).
