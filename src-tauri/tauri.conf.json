@@ -1,0 +1,96 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "BerserkAutoClicker",
+  "version": "2.6.7",
+  "identifier": "BerserkAutoClicker",
+  "build": {
+    "frontendDist": "../dist",
+    "devUrl": "http://localhost:5173",
+    "beforeDevCommand": "npm run vite",
+    "beforeBuildCommand": "npm run frontend:build",
+    "removeUnusedCommands": true
+  },
+  "app": {
+    "withGlobalTauri": true,
+    "windows": [
+      {
+        "label": "main",
+        "title": "BerserkAutoClicker",
+        "width": 500,
+        "height": 150,
+        "resizable": false,
+        "fullscreen": false,
+        "decorations": false,
+        "transparent": true,
+        "maximizable": false,
+        "shadow": false
+      },
+      {
+        "label": "overlay",
+        "url": "overlay.html",
+        "title": "Overlay",
+        "fullscreen": true,
+        "transparent": true,
+        "decorations": false,
+        "alwaysOnTop": true,
+        "visible": false,
+        "skipTaskbar": true,
+        "focusable": false,
+        "shadow": false
+      },
+      {
+        "label": "hud",
+        "url": "hud.html",
+        "title": "BerserkHUD",
+        "width": 200,
+        "height": 56,
+        "resizable": false,
+        "decorations": false,
+        "transparent": true,
+        "alwaysOnTop": true,
+        "visible": false,
+        "skipTaskbar": true,
+        "focusable": false,
+        "shadow": false
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "plugins": {
+    "bundle": {
+      "active": true,
+      "targets": "nsis",
+      "createUpdaterArtifacts": false,
+      "publisher": "Karim",
+      "copyright": "Copyright (c) Karim",
+      "category": "Utility",
+      "shortDescription": "Configurable auto clicker with accurate CPS timing.",
+      "longDescription": "Performance-focused auto clicker with global hotkeys, optional overlay, and advanced timing. Licensed under GPLv3.",
+      "homepage": "https://github.com/gagga1/Berserk-AutoClicker",
+      "icon": ["icons/icon.ico"],
+      "windows": {
+        "webviewInstallMode": {
+          "type": "embedBootstrapper",
+          "silent": true
+        },
+        "nsis": {
+          "compression": "zlib"
+        }
+      }
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "nsis",
+    "createUpdaterArtifacts": false,
+    "icon": ["icons/icon.ico"],
+    "windows": {
+      "webviewInstallMode": {
+        "type": "embedBootstrapper",
+        "silent": true
+      }
+    }
+  }
+}

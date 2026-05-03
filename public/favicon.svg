@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" shape-rendering="crispEdges">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1a1a1a"/>
+      <stop offset="1" stop-color="#0a0a0a"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1024" height="1024" rx="200" ry="200" fill="url(#bg)"/>
+  <rect x="8" y="8" width="1008" height="1008" rx="194" ry="194" fill="none" stroke="#2a2a2a" stroke-width="3"/>
+
+  <!-- Pixel-art lowercase β (Greek beta) in Minecraft (Mojangles) font style.
+       7 cols x 12 rows, pixel = 80 units, offset (232, 32). Both bumps same width;
+       descender continues from the left stem.
+
+       Grid:
+         .#####.    row 0 (top of upper bump)
+         #.....#    row 1
+         #.....#    row 2
+         #.....#    row 3
+         ######.    row 4 (junction: closes upper bump, starts lower bump)
+         #.....#    row 5
+         #.....#    row 6
+         #.....#    row 7
+         ######.    row 8 (closes lower bump)
+         #......    row 9  -+
+         #......    row 10  | descender
+         #......    row 11 -+
+  -->
+  </svg>
