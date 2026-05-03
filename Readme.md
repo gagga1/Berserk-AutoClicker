@@ -5,10 +5,6 @@ Made by and for Berserk Group. First public release on GitHub starts at version 
 A Windows-first desktop autoclicker focused on accuracy, speed and a clean interface. Built with Tauri 2, Rust and React.
 
 <p align="center">
-  <img src="docs/screenshots/desktop-view.png" alt="Berserk Auto Clicker on the desktop with the floating HUD" width="900"/>
-</p>
-
-<p align="center">
   <img src="docs/screenshots/hero.png" alt="Berserk Auto Clicker main window" width="640"/>
 </p>
 
