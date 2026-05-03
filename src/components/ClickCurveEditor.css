@@ -1,0 +1,118 @@
+.curve-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.curve-editor {
+  width: 100%;
+  height: 220px;
+  display: block;
+  background: rgba(255, 255, 255, 0.015);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  touch-action: none;
+}
+
+.curve-grid {
+  stroke: rgba(255, 255, 255, 0.05);
+  stroke-width: 0.5;
+  stroke-dasharray: 2 3;
+}
+
+[data-theme="light"] .curve-grid {
+  stroke: rgba(0, 0, 0, 0.08);
+}
+
+.curve-bound {
+  stroke: rgba(255, 255, 255, 0.18);
+  stroke-width: 1;
+  stroke-dasharray: 4 4;
+}
+
+[data-theme="light"] .curve-bound {
+  stroke: rgba(0, 0, 0, 0.22);
+}
+
+.curve-axis {
+  stroke: var(--text-dim);
+  stroke-width: 1.2;
+  fill: none;
+  color: var(--text-dim);
+}
+
+.curve-tick {
+  stroke: var(--text-dim);
+  stroke-width: 1;
+  opacity: 0.6;
+}
+
+.curve-stroke {
+  fill: none;
+  stroke: var(--berserk-red-strong);
+  stroke-width: 2.4;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  pointer-events: none;
+  filter: drop-shadow(0 0 3px var(--berserk-red-ring));
+}
+
+.curve-handle {
+  cursor: grab;
+  transition: r 0.12s ease;
+}
+
+.curve-handle:hover,
+.curve-handle.active {
+  cursor: grabbing;
+  r: 9;
+}
+
+.curve-handle-duty {
+  fill: var(--berserk-red-strong);
+  stroke: var(--bg-base);
+  stroke-width: 2;
+  filter: drop-shadow(0 0 5px var(--berserk-red-ring));
+}
+
+.curve-handle-jitter {
+  fill: rgb(232, 197, 96);
+  stroke: var(--bg-base);
+  stroke-width: 2;
+  filter: drop-shadow(0 0 5px rgba(212, 176, 74, 0.55));
+}
+
+.curve-label {
+  fill: var(--text-faint);
+  font-family: var(--font-family-mono);
+  font-size: 10px;
+  letter-spacing: 1px;
+  pointer-events: none;
+}
+
+.curve-hint {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--font-family-mono);
+  font-size: 0.72rem;
+  letter-spacing: 1.5px;
+  color: var(--text-faint);
+  text-transform: uppercase;
+}
+
+.curve-hint-duty {
+  color: var(--berserk-red-strong);
+}
+
+.curve-hint-jitter {
+  color: rgb(232, 197, 96);
+}
+
+.curve-hint-sep {
+  margin-left: auto;
+  opacity: 0.7;
+}

@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=VT323&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --font-family-base: 'Inter', sans-serif;
+  --font-family-mono: 'VT323', monospace;
+  --font-family-brand: 'Caveat', cursive;
+
+  --bg-base:       #1c1c1e;
+  --bg-surface:    #161618;
+  --bg-elevated:   #1f1f22;
+  --bg-input:      #232326;
+  --bg-input-off:  #1a1a1d;
+
+  --bg-sidebar:    #141416;
+
+  --border:        #2a2a30;
+  --border-focus:  #404045;
+  --border-subtle: #232326;
+
+  --text-primary:  #f0f0f0;
+  --text-muted:    #b8b8b8;
+  --text-dim:      #8a8a8a;
+  --text-faint:    #555558;
+
+  --berserk-red:        #c44;
+  --berserk-red-strong: #d65555;
+  --berserk-red-soft:   rgba(204, 68, 68, 0.12);
+  --berserk-red-ring:   rgba(204, 68, 68, 0.4);
+
+  --accent-green:        rgba(109, 213, 127, 0.85);
+  --accent-green-strong: #6dd57f;
+  --accent-green-soft:   rgba(109, 213, 127, 0.15);
+  --accent-green-ring:   rgba(109, 213, 127, 0.4);
+  --accent-green-glow-1: rgba(109, 213, 127, 0.2);
+  --accent-green-glow-2: rgba(109, 213, 127, 0.1);
+  --accent-yellow: #d4b04a;
+  --accent-red:    #c44;
+
+  --sev-low:    #5a9a5a;
+  --sev-medium: #d4b04a;
+  --sev-high:   #c96a6a;
+
+  --radius-sm:     6px;
+  --radius-md:     8px;
+  --radius-lg:     10px;
+
+  --container-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+
+  --font-weight-li: 400;
+  --font-weight-md: 500;
+  --font-weight-hv: 700;
+
+  --divider-color: rgba(255, 255, 255, 0.08);
+
+  --update-banner-bg: #2a1f1f;
+  --update-banner-text-fg: #e8c0c0;
+  --update-banner-text-bg: #b8b8b8;
+  --status-success: #78b478;
+  --status-error:   #c96a6a;
+}
+
+[data-theme="light"] {
+  --bg-base:       #f2f2f2;
+  --bg-surface:    #e8e8e8;
+  --bg-elevated:   #dcdcdc;
+  --bg-input:      #d4d4d4;
+  --bg-input-off:  #cfcfcf;
+
+  --bg-sidebar:    #e0e0e0;
+
+  --border:        #c0c0c0;
+  --border-focus:  #8a8a8a;
+  --border-subtle: #d4d4d4;
+
+  --text-primary:  #0d0d0d;
+  --text-muted:    #3a3a3a;
+  --text-dim:      #5a5a5a;
+  --text-faint:    #8a8a8a;
+
+  --berserk-red:        #a83a3a;
+  --berserk-red-strong: #8a2a2a;
+  --berserk-red-soft:   rgba(168, 58, 58, 0.13);
+  --berserk-red-ring:   rgba(168, 58, 58, 0.35);
+
+  --accent-green:        rgba(60, 120, 60, 0.92);
+  --accent-green-strong: rgba(40, 100, 40, 1);
+  --accent-green-soft:   rgba(60, 120, 60, 0.18);
+  --accent-green-ring:   rgba(60, 120, 60, 0.4);
+  --accent-green-glow-1: rgba(60, 120, 60, 0.16);
+  --accent-green-glow-2: rgba(60, 120, 60, 0.08);
+  --accent-yellow: #8a7a3a;
+  --accent-red:    #8a3a3a;
+
+  --sev-low:    #3a7a3a;
+  --sev-medium: #8a7a3a;
+  --sev-high:   #8a3a3a;
+
+  --container-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+
+  --divider-color: rgba(0, 0, 0, 0.12);
+
+  --update-banner-bg: rgba(212, 176, 74, 0.7);
+  --update-banner-text-fg: #0d0d0d;
+  --update-banner-text-bg: #3a3a3a;
+  --status-success: #2c6e2c;
+  --status-error:   #8a3a3a;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  color: var(--text-primary);
+  font-family: var(--font-family-base);
+  font-size: 14px;
+  overflow: hidden;
+  user-select: none;
+}
+
+input, textarea {
+  font-family: var(--font-family-base);
+}
+
+.app-root {
+  border: 1px solid var(--border);
+  background: var(--bg-base);
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  grid-template-rows: 36px 1fr;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  transition:
+    height 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    width 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+}
+
+.app-root[data-running="true"] {
+  border-color: var(--berserk-red-ring);
+  box-shadow:
+    inset 0 0 0 1px var(--berserk-red-soft),
+    0 0 24px var(--berserk-red-soft);
+}
+
+.window-title-background {
+  grid-column: 1 / -1;
+}
+
+.panel-area {
+  padding: 1.25rem 1.5rem 0.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  min-height: 0;
+  min-width: 0;
+}
+
+.panel-area::-webkit-scrollbar {
+  width: 6px;
+  background: var(--bg-elevated);
+}
+.panel-area::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+.panel-area::-webkit-scrollbar-thumb:hover {
+  background: var(--border-focus);
+}

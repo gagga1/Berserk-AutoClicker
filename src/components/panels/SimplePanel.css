@@ -1,0 +1,367 @@
+.simple-panel-v2 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 4px 0;
+}
+
+.sp-curve-block {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sp-curve-toggle {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: transparent;
+  border: none;
+  padding: 4px 0;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+}
+
+.sp-curve-toggle:hover .sp-curve-chev {
+  color: var(--text-primary);
+}
+
+.sp-curve-chev {
+  margin-left: auto;
+  color: var(--text-dim);
+  transition: transform 0.25s ease, color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.sp-curve-block.closed .sp-curve-chev {
+  transform: rotate(-90deg);
+}
+
+.sp-curve-summary {
+  font-family: var(--font-family-mono);
+  font-size: 0.78rem;
+  letter-spacing: 1.5px;
+  color: var(--text-faint);
+  text-transform: uppercase;
+}
+
+.sp-curve-content {
+  max-height: 400px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease;
+  opacity: 1;
+}
+
+.sp-curve-block.closed .sp-curve-content {
+  max-height: 0;
+  opacity: 0;
+}
+
+.sp-row {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  align-items: center;
+  gap: 18px;
+  padding: 4px 0;
+}
+
+.sp-label {
+  font-family: var(--font-family-mono);
+  font-size: 0.95rem;
+  letter-spacing: 2px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+}
+
+.sp-val {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+.sp-divider {
+  height: 1px;
+  background: linear-gradient(90deg, var(--border-subtle), transparent 80%);
+}
+
+/* Segmented control --- L | M | R or Toggle | Hold */
+.sp-seg {
+  display: inline-flex;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  overflow: hidden;
+  padding: 2px;
+  gap: 2px;
+}
+
+.sp-seg-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-dim);
+  font-family: var(--font-family-base);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  padding: 6px 14px;
+  cursor: pointer;
+  border-radius: 5px;
+  min-width: 56px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.sp-seg-btn:hover {
+  color: var(--text-primary);
+}
+
+.sp-seg-btn.active {
+  background: var(--berserk-red);
+  color: #fff;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+}
+
+.sp-seg-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--berserk-red-ring);
+}
+
+/* Hotkey field --- ghost-input look */
+.sp-hotkey {
+  display: inline-flex;
+  align-items: center;
+}
+
+.sp-hotkey-input {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 7px 14px;
+  color: var(--text-primary);
+  font-family: var(--font-family-mono);
+  font-size: 1.05rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.sp-hotkey-input:hover {
+  border-color: var(--border-focus);
+}
+
+.sp-hotkey-input:focus {
+  border-color: var(--berserk-red);
+  background: var(--berserk-red-soft);
+}
+
+/* Cadence wrapper --- keeps existing CadenceInput working */
+.sp-cadence-wrap {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Restore CadenceInput inline layout inside the new wrap */
+.sp-cadence-wrap .InputBox {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 4px 6px;
+  min-height: 38px;
+  gap: 0;
+  transition: border-color 0.15s ease;
+}
+
+.sp-cadence-wrap .InputBox:hover {
+  border-color: var(--border-focus);
+}
+
+.sp-cadence-wrap .simple-cadence-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+}
+
+.sp-cadence-wrap .simple-inline-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-primary);
+  font-family: var(--font-family-mono);
+  font-size: 1.15rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  width: 4ch;
+  min-width: 4ch;
+  padding: 0 6px;
+  margin: 0;
+  text-align: right;
+}
+
+.sp-cadence-wrap .simple-inline-input::-webkit-inner-spin-button,
+.sp-cadence-wrap .simple-inline-input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.sp-cadence-wrap .simple-cadence-input {
+  width: 4ch;
+  min-width: 4ch;
+}
+
+.sp-cadence-wrap .simple-control-label {
+  font-family: var(--font-family-mono);
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding: 0 6px;
+}
+
+.sp-cadence-wrap .vertical-devider {
+  align-self: stretch;
+  width: 1px;
+  background-color: var(--divider-color);
+  margin: 4px 4px;
+  flex-shrink: 0;
+}
+
+.sp-cadence-wrap .simple-duration-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 4px;
+}
+
+.sp-cadence-wrap .simple-duration-chip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 2px;
+  padding: 0 4px;
+}
+
+.sp-cadence-wrap .postfix {
+  font-family: var(--font-family-mono);
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  color: var(--text-faint);
+  text-transform: uppercase;
+  margin-left: 2px;
+}
+
+.sp-cadence-wrap .Icon,
+.sp-cadence-wrap .icon {
+  color: var(--text-primary);
+  flex-shrink: 0;
+}
+
+/* Number chip (duty / jitter) */
+.sp-numchip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 4px 9px;
+  transition: border-color 0.15s ease;
+}
+
+.sp-numchip:focus-within {
+  border-color: var(--border-focus);
+}
+
+.sp-numchip-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-primary);
+  font-family: var(--font-family-mono);
+  font-size: 1.05rem;
+  font-weight: 500;
+  text-align: right;
+  padding: 0;
+}
+
+.sp-numchip-input::-webkit-inner-spin-button,
+.sp-numchip-input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.sp-numchip-unit {
+  font-family: var(--font-family-mono);
+  font-size: 0.85rem;
+  letter-spacing: 1.5px;
+  color: var(--text-faint);
+  text-transform: uppercase;
+}
+
+/* Meta sub-row (duty + jitter) */
+.sp-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Game preset pills */
+.sp-game-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+}
+
+.sp-game-pill {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-family: var(--font-family-mono);
+  font-size: 0.78rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.sp-game-pill:hover {
+  border-color: var(--berserk-red);
+  color: var(--text-primary);
+  background: var(--berserk-red-soft);
+}
+
+.sp-game-roblox:hover {
+  border-color: hsl(208, 60%, 55%);
+  background: hsla(208, 60%, 55%, 0.12);
+  color: hsl(208, 70%, 75%);
+}
+
+.sp-game-minecraft:hover {
+  border-color: hsl(94, 50%, 50%);
+  background: hsla(94, 50%, 50%, 0.12);
+  color: hsl(94, 60%, 75%);
+}
+
+.sp-meta-key {
+  font-family: var(--font-family-mono);
+  font-size: 0.8rem;
+  letter-spacing: 1.5px;
+  color: var(--text-faint);
+  text-transform: uppercase;
+}
+
