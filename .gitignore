@@ -78,6 +78,7 @@ yarn.lock
 bun.lockb
 
 # Internal release / changelog templates — never push to public repo
+.github/
 RELEASE_TEMPLATE.md
 RELEASE_NOTES.md
 .github/RELEASE_TEMPLATE.md
