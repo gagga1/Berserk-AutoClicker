@@ -76,3 +76,11 @@ vite.test.config.ts
 pnpm-lock.yaml
 yarn.lock
 bun.lockb
+
+# Internal release / changelog templates — never push to public repo
+RELEASE_TEMPLATE.md
+RELEASE_NOTES.md
+.github/RELEASE_TEMPLATE.md
+.github/RELEASE_NOTES.md
+release-notes/
+release-drafts/
